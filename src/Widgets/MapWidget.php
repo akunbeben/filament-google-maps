@@ -160,9 +160,9 @@ class MapWidget extends Widgets\Widget
         if ($newDataChecksum !== $this->dataChecksum) {
             $this->dataChecksum = $newDataChecksum;
 
-            $this->emitSelf('updateMapData', [
+            $this->dispatch('updateMapData', [
                 'data' => $this->getCachedData(),
-            ]);
+            ])->self();
         }
     }
 
@@ -173,9 +173,9 @@ class MapWidget extends Widgets\Widget
         if ($newDataChecksum !== $this->dataChecksum) {
             $this->dataChecksum = $newDataChecksum;
 
-            $this->emitSelf('filterChartData', [
+            $this->dispatch('filterChartData', [
                 'data' => $this->getCachedData(),
-            ]);
+            ])->self();
         }
     }
 
